@@ -1,0 +1,82 @@
+20-10-20 09:53:10.992 - INFO:   name: IRN_x4
+  suffix: None
+  model: IRN
+  distortion: sr
+  scale: 4
+  crop_border: None
+  gpu_ids: [1]
+  datasets:[
+    test_1:[
+      name: set5
+      mode: LQGT
+      dataroot_GT: C:\Users\naman\Downloads\DIV2K\DIV2K_valid_HR
+      dataroot_LQ: None
+      phase: test
+      scale: 4
+      data_type: img
+    ]
+    test_2:[
+      name: set14
+      mode: LQGT
+      dataroot_GT: C:\Users\naman\Downloads\DIV2K\DIV2K_valid_HR
+      dataroot_LQ: None
+      phase: test
+      scale: 4
+      data_type: img
+    ]
+    test_3:[
+      name: B100
+      mode: LQGT
+      dataroot_GT: C:\Users\naman\Downloads\DIV2K\DIV2K_valid_HR
+      dataroot_LQ: None
+      phase: test
+      scale: 4
+      data_type: img
+    ]
+    test_4:[
+      name: Urban100
+      mode: LQGT
+      dataroot_GT: C:\Users\naman\Downloads\DIV2K\DIV2K_valid_HR
+      dataroot_LQ: None
+      phase: test
+      scale: 4
+      data_type: img
+    ]
+    test_5:[
+      name: val_DIV2K
+      mode: LQGT
+      dataroot_GT: C:\Users\naman\Downloads\DIV2K\DIV2K_valid_HR
+      dataroot_LQ: None
+      phase: test
+      scale: 4
+      data_type: img
+    ]
+  ]
+  network_G:[
+    which_model_G:[
+      subnet_type: DBNet
+    ]
+    in_nc: 3
+    out_nc: 3
+    block_num: [8, 8]
+    scale: 4
+    init: xavier
+  ]
+  path:[
+    pretrain_model_G: ../experiments/pretrained_models/IRN_x4.pth
+    root: C:\Users\naman\Downloads\Invertible-Image-Rescaling-master\Invertible-Image-Rescaling-master
+    results_root: C:\Users\naman\Downloads\Invertible-Image-Rescaling-master\Invertible-Image-Rescaling-master\results\IRN_x4
+    log: C:\Users\naman\Downloads\Invertible-Image-Rescaling-master\Invertible-Image-Rescaling-master\results\IRN_x4
+  ]
+  is_train: False
+
+20-10-20 09:53:11.349 - INFO: Dataset [LQGTDataset - set5] is created.
+20-10-20 09:53:11.350 - INFO: Number of test images in [set5]: 100
+20-10-20 09:53:11.352 - INFO: Dataset [LQGTDataset - set14] is created.
+20-10-20 09:53:11.352 - INFO: Number of test images in [set14]: 100
+20-10-20 09:53:11.355 - INFO: Dataset [LQGTDataset - B100] is created.
+20-10-20 09:53:11.356 - INFO: Number of test images in [B100]: 100
+20-10-20 09:53:11.357 - INFO: Dataset [LQGTDataset - Urban100] is created.
+20-10-20 09:53:11.358 - INFO: Number of test images in [Urban100]: 100
+20-10-20 09:53:11.360 - INFO: Dataset [LQGTDataset - val_DIV2K] is created.
+20-10-20 09:53:11.361 - INFO: Number of test images in [val_DIV2K]: 100

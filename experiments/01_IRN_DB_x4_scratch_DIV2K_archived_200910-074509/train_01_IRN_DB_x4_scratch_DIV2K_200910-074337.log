@@ -1,0 +1,81 @@
+20-09-10 07:43:37.780 - INFO:   name: 01_IRN_DB_x4_scratch_DIV2K
+  use_tb_logger: True
+  model: IRN
+  distortion: sr
+  scale: 4
+  gpu_ids: [0]
+  datasets:[
+    train:[
+      name: DIV2K
+      mode: LQGT
+      dataroot_GT: None
+      dataroot_LQ: None
+      use_shuffle: True
+      n_workers: 6
+      batch_size: 16
+      GT_size: 144
+      use_flip: True
+      use_rot: True
+      color: RGB
+      phase: train
+      scale: 4
+      data_type: img
+    ]
+    val:[
+      name: val_DIV2K
+      mode: LQGT
+      dataroot_GT: None
+      dataroot_LQ: None
+      phase: val
+      scale: 4
+      data_type: img
+    ]
+  ]
+  network_G:[
+    which_model_G:[
+      subnet_type: DBNet
+    ]
+    in_nc: 3
+    out_nc: 3
+    block_num: [8, 8]
+    scale: 4
+    init: xavier
+  ]
+  path:[
+    pretrain_model_G: None
+    strict_load: True
+    resume_state: None
+    root: C:\Users\naman\Downloads\Invertible-Image-Rescaling-master\Invertible-Image-Rescaling-master
+    experiments_root: C:\Users\naman\Downloads\Invertible-Image-Rescaling-master\Invertible-Image-Rescaling-master\experiments\01_IRN_DB_x4_scratch_DIV2K
+    models: C:\Users\naman\Downloads\Invertible-Image-Rescaling-master\Invertible-Image-Rescaling-master\experiments\01_IRN_DB_x4_scratch_DIV2K\models
+    training_state: C:\Users\naman\Downloads\Invertible-Image-Rescaling-master\Invertible-Image-Rescaling-master\experiments\01_IRN_DB_x4_scratch_DIV2K\training_state
+    log: C:\Users\naman\Downloads\Invertible-Image-Rescaling-master\Invertible-Image-Rescaling-master\experiments\01_IRN_DB_x4_scratch_DIV2K
+    val_images: C:\Users\naman\Downloads\Invertible-Image-Rescaling-master\Invertible-Image-Rescaling-master\experiments\01_IRN_DB_x4_scratch_DIV2K\val_images
+  ]
+  train:[
+    lr_G: 0.0002
+    beta1: 0.9
+    beta2: 0.999
+    niter: 500000
+    warmup_iter: -1
+    lr_scheme: MultiStepLR
+    lr_steps: [100000, 200000, 300000, 400000]
+    lr_gamma: 0.5
+    pixel_criterion_forw: l2
+    pixel_criterion_back: l1
+    manual_seed: 10
+    val_freq: 5000.0
+    lambda_fit_forw: 16.0
+    lambda_rec_back: 1
+    lambda_ce_forw: 1
+    weight_decay_G: 1e-05
+    gradient_clipping: 10
+  ]
+  logger:[
+    print_freq: 100
+    save_checkpoint_freq: 5000.0
+  ]
+  is_train: True
+  dist: False
+
+20-09-10 07:43:37.795 - INFO: You are using PyTorch 1.0. Tensorboard will use [tensorboardX]
